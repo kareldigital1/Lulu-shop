@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lulu Shop | Friperie de Luxe – Vêtements importés de premier choix</title>
+    <meta name="description" content="Lulu Shop - Friperie de premier choix. Robes, palazzo, t-shirts, crop tops et plus encore. Vêtements importés, sélectionnés avec soin. Bienvenue chez Tata Lulu.">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8C3B4A;
+            --primary-dark: #6B2D38;
+            --primary-light: #A05A66;
+            --beige: #F5EFE4;
+            --beige-light: #FDFCF8;
+            --accent: #D4AF37;
+            --accent-light: #E5C86E;
+            --accent-dark: #B4943A;
+            --blanc-casse: #FDFCF8;
+            --text-dark: #2C2418;
+            --text-medium: #5E5444;
+            --text-light: #8C8170;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.12);
+            --glass-border: rgba(255, 255, 255, 0.22);
+            --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 28px;
+            --radius-xl: 40px;
+            --transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-fast: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--blanc-casse);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ============ LOADER ============ */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--blanc-casse);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+            pointer-events: all;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-content {
+            text-align: center;
+        }
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            animation: loaderPulse 1.4s ease-in-out infinite;
+        }
+        .loader-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin: 0 3px;
+            animation: loaderDot 2s ease-in-out infinite;
+        }
+        .loader-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .loader-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes loaderPulse {
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(0.96);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes loaderDot {
+            0%,
+            80%,
+            100% {
+                transform: scale(0.4);
+                opacity: 0.3;
+            }
+            40% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(253, 252, 248, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.06);
+            padding: 12px 40px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-fast);
+            white-space: nowrap;
+        }
+        .nav-logo .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            color: #fff;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--text-medium);
+            transition: var(--transition-fast);
+            position: relative;
+            padding: 4px 0;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: var(--transition-fast);
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 22px !important;
+            border-radius: 50px;
+            font-weight: 600 !important;
+            letter-spacing: 1px !important;
+            transition: var(--transition) !important;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 0.78rem !important;
+        }
+        .nav-cta:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(140, 59, 74, 0.35);
+            color: var(--white) !important;
+        }
+        .nav-cta::after {
+            display: none !important;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition-fast);
+            border-radius: 1px;
+        }
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 14px 20px;
+            }
+            .navbar.scrolled {
+                padding: 10px 20px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--blanc-casse);
+                flex-direction: column;
+                padding: 100px 30px 40px;
+                gap: 20px;
+                transition: var(--transition-smooth);
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08);
+                z-index: 999;
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-cta {
+                text-align: center;
+                display: inline-block;
+            }
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(165deg, #FDFCF8 0%, #F7F1E5 30%, #F5EFE4 60%, #FDFBF5 100%);
+            padding: 120px 40px 60px;
+        }
+        .hero-bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.22;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-bg-orb.orb-1 {
+            width: 500px;
+            height: 500px;
+            background: #E5C86E;
+            top: -15%;
+            right: -10%;
+            animation: orbFloat 10s ease-in-out infinite;
+        }
+        .hero-bg-orb.orb-2 {
+            width: 350px;
+            height: 350px;
+            background: #8C3B4A;
+            bottom: -10%;
+            left: -8%;
+            opacity: 0.15;
+            animation: orbFloat 8s ease-in-out infinite reverse;
+        }
+        .hero-bg-orb.orb-3 {
+            width: 280px;
+            height: 280px;
+            background: #D4AF37;
+            top: 40%;
+            left: 30%;
+            opacity: 0.1;
+            animation: orbFloat 12s ease-in-out infinite 2s;
+        }
+        @keyframes orbFloat {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -40px) scale(1.08);
+            }
+            50% {
+                transform: translate(-15px, 25px) scale(0.94);
+            }
+            75% {
+                transform: translate(20px, 15px) scale(1.05);
+            }
+        }
+        .hero-container {
+            max-width: 1300px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-text {
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .hero-title span {
+            color: var(--primary);
+            font-style: italic;
+            display: block;
+            font-size: 0.85em;
+            font-weight: 500;
+            letter-spacing: 0px;
+            margin-top: 2px;
+        }
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-medium);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 450px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 6px 25px rgba(140, 59, 74, 0.3);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(140, 59, 74, 0.45);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(140, 59, 74, 0.25);
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover {
+            background: #1fb855;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(37, 211, 102, 0.4);
+        }
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        .hero-product-card {
+            width: 320px;
+            height: 420px;
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-product-img {
+            width: 180px;
+            height: 220px;
+            background: linear-gradient(180deg, #FDFAF3 0%, #EBD9B3 50%, #D4B896 100%);
+            border-radius: var(--radius-lg);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 20px 50px rgba(140, 59, 74, 0.2);
+            overflow: hidden;
+        }
+        .hero-product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .hero-product-glow {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.25;
+            top: 20%;
+        }
+        .hero-floating-tag {
+            position: absolute;
+            background: var(--white);
+            padding: 10px 16px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--primary);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            z-index: 3;
+        }
+        .hero-floating-tag.tag-1 {
+            top: 25%;
+            right: 8%;
+            animation: tagFloat 4s ease-in-out infinite;
+        }
+        .hero-floating-tag.tag-2 {
+            bottom: 30%;
+            left: 5%;
+            animation: tagFloat 4s ease-in-out infinite 1s;
+        }
+        @keyframes tagFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-16px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            .hero-subtitle {
+                margin: 0 auto 24px;
+                max-width: 100%;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-product-card {
+                width: 240px;
+                height: 330px;
+            }
+            .hero-product-img {
+                width: 130px;
+                height: 160px;
+                font-size: 3.5rem;
+            }
+            .hero {
+                padding: 100px 20px 40px;
+            }
+            .hero-floating-tag {
+                display: none;
+            }
+        }
+
+        /* ============ SECTION STYLES ============ */
+        .section {
+            padding: 90px 40px;
+            position: relative;
+        }
+        .section-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+        .section-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            text-align: center;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* ============ REVEAL ANIMATION ============ */
+        .reveal {
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        html.js .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        html.js .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ============ ABOUT SECTION ============ */
+        #about { background: var(--white); position: relative; overflow: hidden; }
+        #about::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: #F5EFE4;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            top: -10%;
+            right: -10%;
+            pointer-events: none;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .about-visual { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .about-img-card {
+            width: 160px;
+            height: 200px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .about-img-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1); }
+        .about-img-card:nth-child(1) { background: linear-gradient(160deg, #F6F0E3 0%, #E8D5B0 60%, #C9A87C 100%); margin-top: 20px; }
+        .about-img-card:nth-child(2) { background: linear-gradient(160deg, #EDE1CD 0%, #D4C4A0 50%, #B8956A 100%); margin-top: -20px; }
+        .about-img-card:nth-child(3) { background: linear-gradient(160deg, #FBF7EF 0%, #E0D3B8 50%, #C4A878 100%); margin-top: 30px; }
+        .about-text h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 16px; }
+        .about-text p { color: var(--text-medium); margin-bottom: 14px; line-height: 1.8; font-size: 0.95rem; }
+        .about-values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .about-value-tag {
+            background: rgba(140, 59, 74, 0.08);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 1px solid rgba(140, 59, 74, 0.2);
+        }
+
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .about-visual { order: -1; }
+            .about-img-card { width: 120px; height: 150px; }
+            .section { padding: 60px 18px; }
+        }
+
+        /* ============ PRODUCTS SECTION ============ */
+        #products { background: var(--blanc-casse); }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+        }
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+        .product-img {
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+        }
+        .product-img-bg {
+            position: absolute;
+            inset: 0;
+            transition: var(--transition-smooth);
+        }
+        .product-card:hover .product-img-bg { transform: scale(1.08); }
+        .product-img-1 { background: linear-gradient(160deg, #FDFAF3 0%, #EFE4CF 50%, #DCC9A0 100%); }
+        .product-img-2 { background: linear-gradient(160deg, #FDFCF8 0%, #E8DDD0 50%, #D5C4A8 100%); }
+        .product-img-3 { background: linear-gradient(160deg, #FEFDF9 0%, #F0E8D5 50%, #E0CDAB 100%); }
+        .product-img-4 { background: linear-gradient(160deg, #FCFAF5 0%, #EDE2CC 50%, #DAC8A5 100%); }
+        .product-img img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: var(--transition);
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        .product-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+        .product-info {
+            padding: 20px 22px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-category {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        .product-desc {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .product-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .product-benefit {
+            font-size: 0.65rem;
+            background: rgba(140, 59, 74, 0.06);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 14px;
+            margin-top: auto;
+        }
+        .product-btn {
+            width: 100%;
+            text-align: center;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .product-btn:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 8px 25px rgba(140, 59, 74, 0.35);
+            transform: translateY(-2px);
+        }
+        .detail-btn {
+            width: 100%;
+            text-align: center;
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            padding: 10px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .detail-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(140, 59, 74, 0.25);
+        }
+
+        /* ============ BENEFITS SECTION ============ */
+        #benefits { background: var(--white); position: relative; }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 22px;
+        }
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius-md);
+            background: var(--blanc-casse);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .benefit-card:hover {
+            border-color: rgba(212, 175, 55, 0.35);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            transform: translateY(-4px);
+        }
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(140, 59, 74, 0.12));
+        }
+        .benefit-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+        .benefit-card p { font-size: 0.75rem; color: var(--text-light); line-height: 1.5; }
+
+        /* ============ TESTIMONIALS SECTION ============ */
+        #testimonials { background: var(--white); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+        .testimonial-card { background: var(--blanc-casse); border-radius: var(--radius-lg); padding: 28px; transition: var(--transition); border: 1px solid transparent; }
+        .testimonial-card:hover { border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); transform: translateY(-3px); }
+        .testimonial-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 12px; }
+        .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--text-medium); line-height: 1.7; margin-bottom: 16px; }
+        .testimonial-author { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); }
+        .testimonial-author span { display: block; font-weight: 400; font-size: 0.7rem; color: var(--text-light); letter-spacing: 1px; }
+
+        /* ============ FAQ SECTION ============ */
+        #faq { background: var(--blanc-casse); }
+        .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+        .faq-item { background: var(--white); border-radius: var(--radius-md); overflow: hidden; border: 1px solid rgba(0, 0, 0, 0.04); transition: var(--transition-fast); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02); }
+        .faq-item.active { border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); }
+        .faq-question { padding: 18px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--text-dark); user-select: none; transition: var(--transition-fast); gap: 16px; }
+        .faq-icon { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: rgba(140, 59, 74, 0.08); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: var(--transition-fast); color: var(--primary); }
+        .faq-item.active .faq-icon { transform: rotate(45deg); background: var(--primary); color: #fff; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1), padding 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+        .faq-item.active .faq-answer { max-height: 300px; padding: 0 24px 18px; }
+        .faq-answer p { font-size: 0.85rem; color: var(--text-medium); line-height: 1.7; }
+
+        /* ============ CONTACT SECTION ============ */
+        #contact { background: var(--white); position: relative; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+        .contact-form { display: flex; flex-direction: column; gap: 16px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 14px 18px; border: 1.5px solid rgba(0, 0, 0, 0.08); border-radius: var(--radius-sm); font-family: 'Montserrat', sans-serif; font-size: 0.85rem; background: var(--blanc-casse); transition: var(--transition-fast); resize: vertical; color: var(--text-dark); }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1); background: #fff; }
+        .contact-form textarea { min-height: 120px; }
+        .contact-form .btn { align-self: flex-start; }
+        .contact-info { display: flex; flex-direction: column; gap: 20px; }
+        .contact-info-item { display: flex; gap: 14px; align-items: flex-start; }
+        .contact-info-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(140, 59, 74, 0.08); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .contact-info-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); }
+        .contact-info-text p { font-size: 0.8rem; color: var(--text-light); }
+
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============ FOOTER ============ */
+        .footer { background: #2C2418; color: #F5EFE4; padding: 50px 40px 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-col h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 14px; color: #E5C86E; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .footer-col ul li a { color: #F5EFE4; text-decoration: none; font-size: 0.8rem; transition: var(--transition-fast); letter-spacing: 0.5px; }
+        .footer-col ul li a:hover { color: #D4AF37; }
+        .footer-social { display: flex; gap: 12px; margin-top: 8px; }
+        .footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; font-size: 1rem; text-decoration: none; transition: var(--transition-fast); color: #F5EFE4; }
+        .footer-social a:hover { background: #D4AF37; color: #fff; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 18px; text-align: center; font-size: 0.7rem; letter-spacing: 1px; color: #F5EFE4; opacity: 0.7; }
+        .footer-logo-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #E5C86E; margin-bottom: 4px; }
+        .container-fluid { width: 100%; padding-left: 15px; padding-right: 15px; }
+
+        /* ============ WHATSAPP FLOATING BUTTON ============ */
+        .whatsapp-float {
+            position: fixed; bottom: 28px; right: 28px; z-index: 999;
+            width: 58px; height: 58px; border-radius: 50%; background: #25D366;
+            color: #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            animation: wpPulse 2.2s ease-in-out infinite;
+            transition: var(--transition-fast); cursor: pointer; border: none;
+        }
+        .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 14px 40px rgba(37, 211, 102, 0.55); animation: none; }
+        @keyframes wpPulse {
+            0%, 100% { box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 8px 50px rgba(37, 211, 102, 0.7), 0 0 0 16px rgba(37, 211, 102, 0.08); }
+        }
+        .whatsapp-float-tooltip {
+            position: absolute; right: 68px; background: #fff; color: var(--text-dark);
+            padding: 8px 16px; border-radius: 20px; font-size: 0.7rem; font-weight: 600;
+            white-space: nowrap; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0; pointer-events: none; transition: var(--transition-fast); letter-spacing: 0.5px;
+        }
+        .whatsapp-float:hover .whatsapp-float-tooltip { opacity: 1; }
+
+        @media (max-width: 600px) {
+            .whatsapp-float { width: 50px; height: 50px; bottom: 18px; right: 16px; font-size: 1.5rem; }
+            .whatsapp-float-tooltip { display: none; }
+        }
+
+        /* ============ BACK TO TOP ============ */
+        .back-to-top {
+            position: fixed; bottom: 100px; right: 28px; z-index: 998;
+            width: 40px; height: 40px; border-radius: 50%; background: var(--primary);
+            color: #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; cursor: pointer; border: none; opacity: 0; pointer-events: none;
+            transition: var(--transition-fast); box-shadow: 0 4px 15px rgba(140, 59, 74, 0.3);
+        }
+        .back-to-top.visible { opacity: 1; pointer-events: all; }
+        .back-to-top:hover { background: var(--primary-dark); transform: translateY(-3px); }
+
+        /* ============ MODAL ============ */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            max-width: 650px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            padding: 40px 35px;
+            position: relative;
+            animation: modalFadeIn 0.4s ease;
+            border: 1px solid rgba(212,175,55,0.25);
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-close {
+            position: absolute;
+            top: 18px; right: 22px;
+            background: none; border: none;
+            font-size: 1.6rem;
+            color: var(--text-medium);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+        }
+        .modal-close:hover {
+            background: rgba(140,59,74,0.08);
+            color: var(--primary);
+        }
+        .modal-img {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        .modal-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .modal-desc {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .modal-benefits-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        .modal-benefits-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .modal-benefits-list li {
+            background: rgba(140,59,74,0.06);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .modal-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 15px 0;
+        }
+        .modal-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.8rem;
+        }
+        .modal-whatsapp-btn:hover {
+            background: #1fb855;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+        }
+
+        /* ============ FORM VALIDATION ============ */
+        .form-error { border-color: #e74c3c !important; background: #fff5f5 !important; }
+        .form-success-msg { display: none; background: #eaf7ea; color: #2d6a2d; padding: 14px 18px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px; }
+        .form-success-msg.show { display: block; }
+
+        /* ============ SCROLLBAR ============ */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--blanc-casse); }
+        ::-webkit-scrollbar-thumb { background: #F5EFE4; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+        /* ============ SELECTION ============ */
+        ::selection { background: rgba(212, 175, 55, 0.25); color: var(--text-dark); }
+
+        /* ============ MOBILE ADJUSTMENTS ============ */
+        @media (max-width: 600px) {
+            .loader-logo { font-size: 1.6rem; }
+            .hero-stats { gap: 16px; }
+            .hero-stat-number { font-size: 1.5rem; }
+            .products-grid { grid-template-columns: 1fr; gap: 12px; }
+            .product-img { height: 200px; }
+            .product-info { padding: 12px 14px 18px; }
+            .product-name { font-size: 1rem; }
+            .product-price { font-size: 1.2rem; }
+            .product-btn { font-size: 0.68rem; padding: 10px; }
+            .detail-btn { font-size: 0.65rem; padding: 8px; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .benefit-card { padding: 20px 12px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 25px; }
+            .footer { padding: 40px 20px 20px; }
+            .footer-col h4 { font-size: 1rem; }
+            .footer-col ul li a { font-size: 0.75rem; }
+            .footer-bottom { font-size: 0.65rem; padding-top: 15px; }
+            .footer-bottom br { display: none; }
+            .footer-bottom strong { display: block; margin-top: 5px; }
+            .modal-content { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== LOADER ==================== -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo"><i class="fas fa-tshirt"></i> &nbsp;LULU SHOP</div>
+            <div style="margin-top:12px;">
+                <span class="loader-dot"></span><span class="loader-dot"></span><span class="loader-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <span class="logo-icon"><i class="fas fa-tshirt"></i></span> Lulu Shop
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" onclick="closeNav()">À propos</a></li>
+            <li><a href="#products" onclick="closeNav()">Produits</a></li>
+            <li><a href="#benefits" onclick="closeNav()">Avantages</a></li>
+            <li><a href="#testimonials" onclick="closeNav()">Avis</a></li>
+            <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+            <li><a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20souhaite%20d%C3%A9couvrir%20les%20articles%20Lulu%20Shop." target="_blank" class="nav-cta"><i class="fab fa-whatsapp"></i> Commander</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-orb orb-1"></div>
+        <div class="hero-bg-orb orb-2"></div>
+        <div class="hero-bg-orb orb-3"></div>
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="hero-badge"><i class="fas fa-globe-africa"></i> Friperie de luxe • Importé</span>
+                <h1 class="hero-title">
+                    Bienvenue chez Tata Lulu
+                    <span>Lulu Shop – Friperie d'exception</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Des vêtements importés, sélectionnés avec soin sur les meilleurs marchés de friperie. Qualité, style et prix doux pour un dressing unique.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn btn-primary"><i class="fas fa-tshirt"></i> Voir la collection</a>
+                    <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20souhaite%20d%C3%A9couvrir%20les%20articles%20Lulu%20Shop." target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Commander sur WhatsApp</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" data-count="100">0</div>
+                        <div class="hero-stat-label">% Pièces uniques</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" data-count="500">0</div>
+                        <div class="hero-stat-label">Clientes satisfaites</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" data-count="7">0</div>
+                        <div class="hero-stat-label">Catégories mode</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-product-card">
+                    <div class="hero-product-glow"></div>
+                    <div class="hero-product-img">
+                        <!-- Image placeholder : à remplacer par votre image principale -->
+                        <img src="images/hero-product.png" alt="Robe Lulu Shop">
+                    </div>
+                    <div style="text-align:center;margin-top:14px;position:relative;z-index:1;">
+                        <p style="font-family:'Playfair Display',serif;font-weight:600;color:var(--text-dark);">Robe Élégance</p>
+                        <p style="font-size:0.7rem;color:var(--accent-dark);letter-spacing:1px;">Fripes de Luxe</p>
+                    </div>
+                </div>
+                <div class="hero-floating-tag tag-1"><i class="fas fa-star"></i> Qualité Premium</div>
+                <div class="hero-floating-tag tag-2"><i class="fas fa-truck"></i> Livraison rapide</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="section" id="about">
+        <div class="container">
+            <p class="section-label reveal">Notre Histoire</p>
+            <h2 class="section-title reveal reveal-delay-1">Lulu Shop, la friperie qui vous sublime</h2>
+            <p class="section-subtitle reveal reveal-delay-2">Des vêtements importés de qualité, chinés avec passion pour vous offrir un style unique à petit prix.</p>
+            <div class="about-grid">
+                <div class="about-visual reveal reveal-delay-2">
+                    <div class="about-img-card"></div>
+                    <div class="about-img-card"></div>
+                    <div class="about-img-card"></div>
+                </div>
+                <div class="about-text reveal reveal-delay-3">
+                    <h3>Le meilleur de la fripe, sélectionné pour vous</h3>
+                    <p>
+                        <strong>Lulu Shop</strong> est née d'une passion pour la mode accessible et responsable. Nous parcourons les marchés internationaux de friperie pour dénicher des pièces uniques, de qualité irréprochable, que nous mettons à votre disposition au Bénin.
+                    </p>
+                    <p>
+                        Robes, palazzo, t-shirts, crop tops, bodys, chemises, combinaisons… Chaque article est lavé, repassé et contrôlé avant d'arriver dans votre dressing. Nous croyons que le style n'a pas de prix, mais qu'il doit rester abordable.
+                    </p>
+                    <div class="about-values">
+                        <span class="about-value-tag"><i class="fas fa-check-circle"></i> Qualité contrôlée</span>
+                        <span class="about-value-tag"><i class="fas fa-globe"></i> Importé</span>
+                        <span class="about-value-tag"><i class="fas fa-hand-holding-heart"></i> Pièces uniques</span>
+                        <span class="about-value-tag"><i class="fas fa-tags"></i> Prix doux</span>
+                        <span class="about-value-tag"><i class="fas fa-leaf"></i> Mode durable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCTS SECTION ==================== -->
+    <section class="section" id="products">
+        <div class="container">
+            <p class="section-label reveal">Notre Collection</p>
+            <h2 class="section-title reveal reveal-delay-1">Des pièces uniques pour tous les styles</h2>
+            <p class="section-subtitle reveal reveal-delay-2">Découvrez nos catégories de vêtements importés, soigneusement sélectionnés pour vous.</p>
+            <div class="products-grid">
+                <!-- Produit 1 : Robe -->
+                <div class="product-card reveal reveal-delay-1" data-product="1">
+                    <div class="product-img product-img-1">
+                        <img src="images/robe.png" alt="Robe">
+                        <span class="product-badge">Best-seller</span>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Robe</p>
+                        <h3 class="product-name">Robe Élégance</h3>
+                        <p class="product-desc">Des robes tendance, coupées dans de belles matières, pour toutes les occasions.</p>
+                        <div class="product-benefits">
+                            <span class="product-benefit">Styles variés</span>
+                            <span class="product-benefit">Tailles S-XL</span>
+                        </div>
+                        <p class="product-price">5 000 - 12 000 FCFA</p>
+                        <button class="detail-btn" onclick="openProductModal(1)"><i class="fas fa-info-circle"></i> Voir détail</button>
+                        <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Robe." target="_blank" class="product-btn"><i class="fab fa-whatsapp"></i> Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 2 : Palazzo -->
+                <div class="product-card reveal reveal-delay-2" data-product="2">
+                    <div class="product-img product-img-2">
+                        <img src="images/palazzo.png" alt="Palazzo">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Palazzo</p>
+                        <h3 class="product-name">Palazzo Chic</h3>
+                        <p class="product-desc">Pantalons fluides et élégants, parfaits pour un look décontracté ou habillé.</p>
+                        <div class="product-benefits">
+                            <span class="product-benefit">Confort absolu</span>
+                            <span class="product-benefit">Imprimés tendance</span>
+                        </div>
+                        <p class="product-price">4 500 - 9 000 FCFA</p>
+                        <button class="detail-btn" onclick="openProductModal(2)"><i class="fas fa-info-circle"></i> Voir détail</button>
+                        <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Palazzo." target="_blank" class="product-btn"><i class="fab fa-whatsapp"></i> Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 3 : T-shirt -->
+                <div class="product-card reveal reveal-delay-3" data-product="3">
+                    <div class="product-img product-img-3">
+                        <img src="images/tshirt.png" alt="T-shirt">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">T-shirt</p>
+                        <h3 class="product-name">T-shirt Tendance</h3>
+                        <p class="product-desc">Basiques ou graphiques, nos t-shirts s'adaptent à toutes vos envies mode.</p>
+                        <div class="product-benefits">
+                            <span class="product-benefit">Coton doux</span>
+                            <span class="product-benefit">Coupes modernes</span>
+                        </div>
+                        <p class="product-price">2 500 - 5 000 FCFA</p>
+                        <button class="detail-btn" onclick="openProductModal(3)"><i class="fas fa-info-circle"></i> Voir détail</button>
+                        <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20T-shirt." target="_blank" class="product-btn"><i class="fab fa-whatsapp"></i> Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 4 : Crop top -->
+                <div class="product-card reveal reveal-delay-4" data-product="4">
+                    <div class="product-img product-img-4">
+                        <img src="images/croptop.png" alt="Crop top">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Crop top</p>
+                        <h3 class="product-name">Crop top Audace</h3>
+                        <p class="product-desc">Pour un look estival ou à superposer, nos crop tops sont irrésistibles.</p>
+                        <div class="product-benefits">
+                            <span class="product-benefit">Tendances 2025</span>
+                            <span class="product-benefit">Associable facilement</span>
+                        </div>
+                        <p class="product-price">2 000 - 4 500 FCFA</p>
+                        <button class="detail-btn" onclick="openProductModal(4)"><i class="fas fa-info-circle"></i> Voir détail</button>
+                        <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Crop%20top." target="_blank" class="product-btn"><i class="fab fa-whatsapp"></i> Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 5 : Body Sweet (Body) -->
+                <div class="product-card reveal reveal-delay-1" data-product="5">
+                    <div class="product-img product-img-1">
+                        <img src="images/body.png" alt="Body Sweet">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Body Sweet</p>
+                        <h3 class="product-name">Body Sweet Sensuel</h3>
+                        <p class="product-desc">Bodys élégants, près du corps, parfaits pour un look chic et glamour.</p>
+                        <div class="product-benefits">
+                            <span class="product-benefit">Maintien parfait</span>
+                            <span class="product-benefit">Tissus extensibles</span>
+                        </div>
+                        <p class="product-price">3 500 - 7 000 FCFA</p>
+                        <button class="detail-btn" onclick="openProductModal(5)"><i class="fas fa-info-circle"></i> Voir détail</button>
+                        <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Body%20Sweet." target="_blank" class="product-btn"><i class="fab fa-whatsapp"></i> Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 6 : Chemise -->
+                <div class="product-card reveal reveal-delay-2" data-product="6">
+                    <div class="product-img product-img-2">
+                        <img src="images/chemise.png" alt="Chemise">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Chemise</p>
+                        <h3 class="product-name">Chemise Raffinée</h3>
+                        <p class="product-desc">Des chemises de qualité, pour un style professionnel ou décontracté chic.</p>
+                        <div class="product-benefits">
+                            <span class="product-benefit">Coupe impeccable</span>
+                            <span class="product-benefit">Facile d'entretien</span>
+                        </div>
+                        <p class="product-price">4 000 - 8 000 FCFA</p>
+                        <button class="detail-btn" onclick="openProductModal(6)"><i class="fas fa-info-circle"></i> Voir détail</button>
+                        <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Chemise." target="_blank" class="product-btn"><i class="fab fa-whatsapp"></i> Commander</a>
+                    </div>
+                </div>
+                
+                <!-- Produit 7 : Combinaison -->
+                <div class="product-card reveal reveal-delay-3" data-product="7">
+                    <div class="product-img product-img-3">
+                        <img src="images/combinaison.png" alt="Combinaison">
+                        <span class="product-badge">Nouveauté</span>
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Combinaison</p>
+                        <h3 class="product-name">Combinaison Glamour</h3>
+                        <p class="product-desc">Des combinaisons tendance qui habillent instantanément avec caractère.</p>
+                        <div class="product-benefits">
+                            <span class="product-benefit">Style affirmé</span>
+                            <span class="product-benefit">Taille élastique</span>
+                        </div>
+                        <p class="product-price">7 000 - 14 000 FCFA</p>
+                        <button class="detail-btn" onclick="openProductModal(7)"><i class="fas fa-info-circle"></i> Voir détail</button>
+                        <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Combinaison." target="_blank" class="product-btn"><i class="fab fa-whatsapp"></i> Commander</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BENEFITS SECTION ==================== -->
+    <section class="section" id="benefits">
+        <div class="container">
+            <p class="section-label reveal">Pourquoi Lulu Shop ?</p>
+            <h2 class="section-title reveal reveal-delay-1">La différence Lulu</h2>
+            <p class="section-subtitle reveal reveal-delay-2">Un service attentionné et des vêtements qui vous ressemblent vraiment.</p>
+            <div class="benefits-grid">
+                <div class="benefit-card reveal reveal-delay-1">
+                    <div class="benefit-icon"><i class="fas fa-gem"></i></div>
+                    <h4>Qualité premium</h4>
+                    <p>Chaque pièce est contrôlée : pas de taches, pas de trous. Rien que du impeccable.</p>
+                </div>
+                <div class="benefit-card reveal reveal-delay-2">
+                    <div class="benefit-icon"><i class="fas fa-globe-africa"></i></div>
+                    <h4>Importé avec soin</h4>
+                    <p>Vêtements chinés sur les marchés internationaux, sélectionnés un par un.</p>
+                </div>
+                <div class="benefit-card reveal reveal-delay-3">
+                    <div class="benefit-icon"><i class="fas fa-tag"></i></div>
+                    <h4>Prix imbattables</h4>
+                    <p>La mode de qualité à des prix qui respectent votre budget.</p>
+                </div>
+                <div class="benefit-card reveal reveal-delay-1">
+                    <div class="benefit-icon"><i class="fas fa-tshirt"></i></div>
+                    <h4>Styles uniques</h4>
+                    <p>Des pièces rares que vous ne verrez pas sur tout le monde.</p>
+                </div>
+                <div class="benefit-card reveal reveal-delay-2">
+                    <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+                    <h4>Livraison rapide</h4>
+                    <p>Expédition soignée partout au Bénin, sous 48h après validation.</p>
+                </div>
+                <div class="benefit-card reveal reveal-delay-3">
+                    <div class="benefit-icon"><i class="fas fa-smile"></i></div>
+                    <h4>Service client</h4>
+                    <p>Tata Lulu vous conseille avec le sourire, avant et après l'achat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS SECTION ==================== -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <p class="section-label reveal">Témoignages</p>
+            <h2 class="section-title reveal reveal-delay-1">Elles adorent Lulu Shop</h2>
+            <p class="section-subtitle reveal reveal-delay-2">La satisfaction de nos clientes est notre plus belle récompense.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Ma robe Lulu Shop a fait sensation au mariage ! Qualité incroyable, on dirait du neuf. Tata Lulu a un œil infaillible."</p>
+                    <p class="testimonial-author">Clarisse M.<span>Cotonou, Bénin</span></p>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"J'ai acheté un lot de t-shirts et un palazzo. Les finitions sont parfaites, les prix plus que raisonnables. Je recommande !"</p>
+                    <p class="testimonial-author">Fatima A.<span>Calavi, Bénin</span></p>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-3">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Enfin une friperie qui sélectionne vraiment de belles pièces. Ma combinaison est devenue ma tenue préférée."</p>
+                    <p class="testimonial-author">Aïcha K.<span>Parakou, Bénin</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ SECTION ==================== -->
+    <section class="section" id="faq">
+        <div class="container">
+            <p class="section-label reveal">Questions fréquentes</p>
+            <h2 class="section-title reveal reveal-delay-1">Tout savoir sur Lulu Shop</h2>
+            <div class="faq-list reveal reveal-delay-2">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>D'où viennent les vêtements ?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nos articles sont importés depuis des marchés de friperie internationaux. Nous les sélectionnons nous-mêmes pour leur qualité et leur style. Aucune production locale, ce sont de véritables trouvailles de seconde main haut de gamme.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Les vêtements sont-ils en bon état ?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tous nos vêtements sont triés, lavés et repassés. Nous vérifions l'absence de défauts majeurs. Ils sont comme neufs ou très peu portés. La qualité est notre priorité absolue.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment commander ?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Contactez-nous directement via WhatsApp au 56 37 56 82 ou appelez-nous. Envoyez-nous la photo du modèle qui vous plaît, et nous vous indiquons la disponibilité et le prix. Paiement à la livraison possible.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quelles sont les heures d'ouverture ?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous sommes disponibles du lundi au samedi, de 9h à 18h. Les commandes passées en dehors de ces horaires seront traitées le jour ouvré suivant.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="section" id="contact">
+        <div class="container">
+            <p class="section-label reveal">Contactez-nous</p>
+            <h2 class="section-title reveal reveal-delay-1">Une question ? Écrivez à Tata Lulu</h2>
+            <p class="section-subtitle reveal reveal-delay-2">Nous sommes à votre écoute pour toute demande de renseignement ou commande.</p>
+            <div class="contact-grid">
+                <form class="contact-form reveal reveal-delay-2" id="contactForm" action="https://formspree.io/f/YOUR_ID" method="POST">
+                    <input type="text" placeholder="Votre nom complet" id="contactName" name="nom" required>
+                    <input type="email" placeholder="Votre adresse email" id="contactEmail" name="email" required>
+                    <input type="tel" placeholder="Votre numéro de téléphone" id="contactPhone" name="telephone">
+                    <textarea placeholder="Votre message..." id="contactMessage" name="message" required></textarea>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+                    <div class="form-success-msg" id="formSuccessMsg"><i class="fas fa-check-circle"></i> Votre message a été envoyé avec succès ! Tata Lulu vous répondra dans les plus brefs délais.</div>
+                </form>
+                <div class="contact-info reveal reveal-delay-3">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Adresse</h4>
+                            <p>Cotonou, Bénin (marché de friperie, détails sur demande)</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Téléphone</h4>
+                            <p>+229 01 56 37 56 82<br>+229 01 66 38 60 30<br>Lun - Sam : 9h - 18h</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Email</h4>
+                            <p>lulushop@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-comments"></i></div>
+                        <div class="contact-info-text">
+                            <h4>WhatsApp</h4>
+                            <p>+229 56 37 56 82<br>Réponse rapide garantie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-text"><i class="fas fa-tshirt"></i>&nbsp;Lulu Shop</div>
+                    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:#E5C86E;margin-bottom:8px;">Friperie de luxe, style accessible</p>
+                    <p style="font-size:0.75rem;color:#F5EFE4;opacity:0.7;">Vêtements importés sélectionnés avec soin. La mode seconde main haut de gamme au Bénin.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#products">Produits</a></li>
+                        <li><a href="#benefits">Avantages</a></li>
+                        <li><a href="#testimonials">Avis</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Catégories</h4>
+                    <ul>
+                        <li><a href="#products">Robe</a></li>
+                        <li><a href="#products">Palazzo</a></li>
+                        <li><a href="#products">T-shirt</a></li>
+                        <li><a href="#products">Crop top</a></li>
+                        <li><a href="#products">Body Sweet</a></li>
+                        <li><a href="#products">Chemise</a></li>
+                        <li><a href="#products">Combinaison</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Suivez-nous</h4>
+                    <div class="footer-social">
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/22956375682" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 Lulu Shop. Tous droits réservés. Made with <i class="fas fa-heart"></i> in Benin.<br>
+                Site réalisé par <strong>KStalker</strong>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL ==================== -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-img" id="modalImg">
+                <img src="" alt="" id="modalImageSrc">
+            </div>
+            <p class="modal-category" id="modalCategory"></p>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <p class="modal-desc" id="modalDesc"></p>
+            <div class="modal-benefits-title">Détails & avantages</div>
+            <ul class="modal-benefits-list" id="modalBenefits"></ul>
+            <p class="modal-price" id="modalPrice"></p>
+            <a href="#" class="modal-whatsapp-btn" id="modalWhatsappBtn" target="_blank"><i class="fab fa-whatsapp"></i> Commander ce produit</a>
+        </div>
+    </div>
+
+    <!-- ==================== WHATSAPP FLOATING BUTTON ==================== -->
+    <a href="https://wa.me/22956375682?text=Bonjour%2C%20je%20souhaite%20d%C3%A9couvrir%20les%20articles%20Lulu%20Shop." target="_blank" class="whatsapp-float" id="whatsappFloat" aria-label="Commander sur WhatsApp">
+        <span class="whatsapp-float-tooltip">Discutons ! <i class="fas fa-comments"></i></span>
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Product data for modal (à personnaliser avec les vrais détails si besoin)
+        const productDetails = {
+            1: {
+                img: 'images/robe.png',
+                category: 'Robe',
+                name: 'Robe Élégance',
+                desc: 'Des robes tendance, coupées dans de belles matières, pour toutes les occasions. Chaque modèle est unique, sélectionné avec soin sur les marchés de friperie internationaux. Lavées et repassées, elles sont prêtes à être portées.',
+                benefits: ['Styles variés', 'Tailles S-XL', 'Bon état général', 'Prix doux'],
+                price: '5 000 - 12 000 FCFA',
+                whatsapp: 'https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Robe.'
+            },
+            2: {
+                img: 'images/palazzo.png',
+                category: 'Palazzo',
+                name: 'Palazzo Chic',
+                desc: 'Pantalons fluides et élégants, parfaits pour un look décontracté ou habillé. Grande variété d\'imprimés et de couleurs, sélectionnés pour leur coupe flatteuse.',
+                benefits: ['Confort absolu', 'Imprimés tendance', 'Taille élastiquée', 'Pièce unique'],
+                price: '4 500 - 9 000 FCFA',
+                whatsapp: 'https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Palazzo.'
+            },
+            3: {
+                img: 'images/tshirt.png',
+                category: 'T-shirt',
+                name: 'T-shirt Tendance',
+                desc: 'Basiques ou graphiques, nos t-shirts s\'adaptent à toutes vos envies mode. Coton doux, coupes modernes, pour un look effortless chic.',
+                benefits: ['Coton doux', 'Coupes modernes', 'Facile à porter', 'Disponible en plusieurs couleurs'],
+                price: '2 500 - 5 000 FCFA',
+                whatsapp: 'https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20T-shirt.'
+            },
+            4: {
+                img: 'images/croptop.png',
+                category: 'Crop top',
+                name: 'Crop top Audace',
+                desc: 'Pour un look estival ou à superposer, nos crop tops sont irrésistibles. Couleurs vives, coupes tendance, de quoi réveiller votre garde-robe.',
+                benefits: ['Tendances 2025', 'Associable facilement', 'Matières agréables', 'Idéal pour les chaudes journées'],
+                price: '2 000 - 4 500 FCFA',
+                whatsapp: 'https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Crop%20top.'
+            },
+            5: {
+                img: 'images/body.png',
+                category: 'Body Sweet',
+                name: 'Body Sweet Sensuel',
+                desc: 'Bodys élégants, près du corps, parfaits pour un look chic et glamour. Tissus extensibles de qualité pour un maintien impeccable.',
+                benefits: ['Maintien parfait', 'Tissus extensibles', 'Look sophistiqué', 'Facile à accessoiriser'],
+                price: '3 500 - 7 000 FCFA',
+                whatsapp: 'https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Body%20Sweet.'
+            },
+            6: {
+                img: 'images/chemise.png',
+                category: 'Chemise',
+                name: 'Chemise Raffinée',
+                desc: 'Des chemises de qualité, pour un style professionnel ou décontracté chic. Coupes impeccables, faciles d\'entretien.',
+                benefits: ['Coupe impeccable', 'Facile d\'entretien', 'Look soigné', 'Plusieurs coloris'],
+                price: '4 000 - 8 000 FCFA',
+                whatsapp: 'https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Chemise.'
+            },
+            7: {
+                img: 'images/combinaison.png',
+                category: 'Combinaison',
+                name: 'Combinaison Glamour',
+                desc: 'Des combinaisons tendance qui habillent instantanément avec caractère. Taille élastique ou ceinturée, pour un tombé parfait.',
+                benefits: ['Style affirmé', 'Taille élastique', 'Parfaite pour les soirées', 'Pièce forte du dressing'],
+                price: '7 000 - 14 000 FCFA',
+                whatsapp: 'https://wa.me/22956375682?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20la%20cat%C3%A9gorie%20Combinaison.'
+            }
+        };
+
+        // ============ MODAL FUNCTIONS ============
+        const modal = document.getElementById('productModal');
+        const modalImg = document.getElementById('modalImageSrc');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalBenefits = document.getElementById('modalBenefits');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+
+        function openProductModal(productId) {
+            const data = productDetails[productId];
+            if (!data) return;
+
+            modalImg.src = data.img;
+            modalImg.alt = data.name;
+            modalCategory.textContent = data.category;
+            modalTitle.textContent = data.name;
+            modalDesc.textContent = data.desc;
+            modalBenefits.innerHTML = data.benefits.map(b => `<li>${b}</li>`).join('');
+            modalPrice.textContent = data.price;
+            modalWhatsappBtn.href = data.whatsapp;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Fermer la modale en cliquant en dehors du contenu
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Fermer avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        (function() {
+            // ============ LOADER ============
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 600);
+            });
+            document.body.style.overflow = 'hidden';
+
+            // ============ NAVBAR SCROLL ============
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+
+            function updateNavbar() {
+                const scrollY = window.scrollY;
+                if (scrollY > 60) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                if (scrollY > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }
+            window.addEventListener('scroll', updateNavbar, { passive: true });
+
+            // ============ BACK TO TOP ============
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ============ MOBILE NAV TOGGLE ============
+            const navToggle = document.getElementById('navToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            window.closeNav = function() {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            };
+
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !navToggle.contains(e.target) && navLinks.classList.contains('active')) {
+                    closeNav();
+                }
+            });
+
+            // ============ REVEAL ON SCROLL ============
+            const revealElements = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -40px 0px'
+                });
+                revealElements.forEach(el => revealObserver.observe(el));
+            } else {
+                revealElements.forEach(el => el.classList.add('visible'));
+            }
+
+            // ============ STAT COUNTER ANIMATION ============
+            const statNumbers = document.querySelectorAll('.hero-stat-number[data-count]');
+            if ('IntersectionObserver' in window) {
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            const target = parseInt(el.getAttribute('data-count'));
+                            const duration = 2000;
+                            const startTime = performance.now();
+                            const startVal = 0;
+
+                            function updateCounter(timestamp) {
+                                const elapsed = timestamp - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const easeOut = 1 - Math.pow(1 - progress, 3);
+                                const current = Math.round(startVal + (target - startVal) * easeOut);
+                                el.textContent = current.toLocaleString() + (target === 7 ? '' : (target === 100 ? '%' : '+'));
+                                if (progress < 1) {
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    el.textContent = target.toLocaleString() + (target === 7 ? '' : (target === 100 ? '%' : '+'));
+                                }
+                            }
+                            requestAnimationFrame(updateCounter);
+                            statsObserver.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.6 });
+                statNumbers.forEach(el => statsObserver.observe(el));
+            } else {
+                statNumbers.forEach(el => {
+                    const target = parseInt(el.getAttribute('data-count'));
+                    el.textContent = target.toLocaleString() + (target === 7 ? '' : (target === 100 ? '%' : '+'));
+                });
+            }
+
+            // ============ FAQ ACCORDION ============
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(fi => fi.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // ============ CONTACT FORM VALIDATION ============
+            const contactForm = document.getElementById('contactForm');
+            const formSuccessMsg = document.getElementById('formSuccessMsg');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let valid = true;
+                const name = document.getElementById('contactName');
+                const email = document.getElementById('contactEmail');
+                const message = document.getElementById('contactMessage');
+                [name, email, message].forEach(f => f.classList.remove('form-error'));
+
+                if (!name.value.trim()) {
+                    name.classList.add('form-error');
+                    valid = false;
+                }
+                if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                    email.classList.add('form-error');
+                    valid = false;
+                }
+                if (!message.value.trim()) {
+                    message.classList.add('form-error');
+                    valid = false;
+                }
+
+                if (valid) {
+                    formSuccessMsg.classList.add('show');
+                    contactForm.reset();
+                    setTimeout(() => {
+                        formSuccessMsg.classList.remove('show');
+                    }, 5000);
+                }
+            });
+
+            // ============ SMOOTH SCROLL ============
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        if (navLinks.classList.contains('active')) {
+                            closeNav();
+                        }
+                    }
+                });
+            });
+
+            // ============ PARALLAX HERO ============
+            const heroOrbs = document.querySelectorAll('.hero-bg-orb');
+            window.addEventListener('mousemove', function(e) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                heroOrbs.forEach((orb, i) => {
+                    const factor = (i + 1) * 0.6;
+                    orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+                });
+            }, { passive: true });
+
+            console.log('✨ Lulu Shop - Prêt à styler le Bénin !');
+        })();
+    </script>
+</body>
+</html>
