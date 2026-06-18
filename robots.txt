@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tata-lulu-shop.onrender.com/sitemap.xml
