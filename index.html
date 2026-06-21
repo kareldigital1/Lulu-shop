@@ -32,8 +32,13 @@
             "image": "https://tata-lulu-shop.onrender.com/images/logo.png",
             "description": "Friperie femme à Atrokpocodji, Abomey-Calavi, Bénin. Robes, palazzo, t-shirts, crop tops et vêtements importés de qualité à prix doux.",
             "telephone": "+2290156375682",
-            "email": "lulushop@email.com",
+            "email": "tatalulushop@gmail.com",
             "priceRange": "1000-3000 XOF",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 6.387366,
+                "longitude": 2.321474
+            },
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Atrokpocodji, Carrefour Séminaire, Rue en face Station Bénin pétro, Cinquième boutique à droite",
@@ -1018,6 +1023,106 @@
         .faq-item.active .faq-answer { max-height: 300px; padding: 0 24px 18px; }
         .faq-answer p { font-size: 0.85rem; color: var(--text-medium); line-height: 1.7; }
 
+        /* ============ LOCATION SECTION ============ */
+        #location {
+            background: linear-gradient(180deg, #FDFCF8 0%, #F7F1E5 52%, #FDFBF5 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .location-shell {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.2fr);
+            gap: 34px;
+            align-items: stretch;
+        }
+        .location-card {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.07);
+            padding: 34px;
+        }
+        .location-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+            line-height: 1.2;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+        .location-card > p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        .location-meta {
+            display: grid;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .location-meta-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.76);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(140, 59, 74, 0.08);
+        }
+        .location-meta-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(140, 59, 74, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .location-meta-item strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+        .location-meta-item span {
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .location-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .location-note {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            letter-spacing: 0.4px;
+        }
+        .location-map-stage {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.08);
+            background: #fff;
+            min-height: 100%;
+        }
+        .location-map-stage iframe {
+            display: block;
+            width: 100%;
+            min-height: 520px;
+            border: 0;
+        }
+
         /* ============ CONTACT SECTION ============ */
         #contact { background: var(--white); position: relative; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
@@ -1032,8 +1137,15 @@
         .contact-info-text h4 { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); }
         .contact-info-text p { font-size: 0.8rem; color: var(--text-light); }
 
+        @media (max-width: 980px) {
+            .location-shell { grid-template-columns: 1fr; }
+            .location-map-stage iframe { min-height: 380px; }
+        }
+
         @media (max-width: 768px) {
             .contact-grid { grid-template-columns: 1fr; }
+            .location-card { padding: 24px; }
+            .location-map-stage iframe { min-height: 300px; }
         }
 
         /* ============ FOOTER ============ */
@@ -1637,6 +1749,55 @@
         </div>
     </section>
 
+    <!-- ==================== LOCATION SECTION ==================== -->
+    <section class="section" id="location">
+        <div class="container">
+            <p class="section-label reveal">Localisation</p>
+            <p class="section-subtitle reveal reveal-delay-2">Repérez Tata Lulu Shop rapidement, lancez votre itinéraire et gardez le bon point de repère avant de nous contacter.</p>
+            <div class="location-shell">
+                <div class="location-card reveal reveal-delay-2">
+                    <div class="location-meta">
+                        <div class="location-meta-item">
+                            <div class="location-meta-icon"><i class="fas fa-map-pin"></i></div>
+                            <div>
+                                <strong>Adresse</strong>
+                                <span>Atrokpocodji, Carrefour Séminaire st Jean Eudes, rue en face Station Bénin pétro, cinquième boutique à droite.</span>
+                            </div>
+                        </div>
+                        <div class="location-meta-item">
+                            <div class="location-meta-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <strong>Horaires</strong>
+                                <span>Lundi au samedi, de 8h à 20h.</span>
+                            </div>
+                        </div>
+                        <div class="location-meta-item">
+                            <div class="location-meta-icon"><i class="fas fa-location-arrow"></i></div>
+                            <div>
+                                <strong>Coordonnées GPS</strong>
+                                <span>6.387366, 2.321474</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="location-actions">
+                        <a href="https://maps.google.com/?q=6.387366,2.321474" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fas fa-location-arrow"></i> Ouvrir Google Maps</a>
+                        
+                    </div>
+                    <p class="location-note"></p>
+                </div>
+                <div class="location-map-stage reveal reveal-delay-3">
+                    <iframe
+                        src="https://www.google.com/maps?q=6.387366,2.321474&z=18&output=embed"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte Google Maps de Tata Lulu Shop">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== CONTACT SECTION ==================== -->
     <section class="section" id="contact">
         <div class="container">
@@ -1654,24 +1815,17 @@
                 </form>
                 <div class="contact-info reveal reveal-delay-3">
                     <div class="contact-info-item">
-                        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-info-text">
-                            <h4>Adresse</h4>
-                            <p>Atrokpocodji, Carrefour Séminaire, <br> Rue en face Station Bénin pétro, <br> Cinquième boutique à droite</p>
-                        </div>
-                    </div>
-                    <div class="contact-info-item">
                         <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
                         <div class="contact-info-text">
                             <h4>Téléphone</h4>
-                            <p>+229 01 56 37 56 82<br>+229 01 66 38 60 30<br>Lun - Sam : 9h - 18h</p>
+                            <p>+229 01 56 37 56 82<br>+229 01 66 38 60 30</p>
                         </div>
                     </div>
                     <div class="contact-info-item">
                         <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-info-text">
                             <h4>Email</h4>
-                            <p>lulushop@email.com</p>
+                            <a href="mailto:tatalulushop@gmail.com">tatalulushop@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-info-item">
@@ -1691,7 +1845,7 @@
         <div class="container-fluid">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo-text"><i class="fas fa-tshirt"></i>&nbsp; TataLulu Shop</div>
+                    <div class="footer-logo-text"><i class="fas fa-person-dress"></i>&nbsp; TataLulu Shop</div>
                     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:#E5C86E;margin-bottom:8px;">Friperie de luxe, style accessible</p>
                     <p style="font-size:0.75rem;color:#F5EFE4;opacity:0.7;">Vêtements importés sélectionnés avec soin. La mode seconde main haut de gamme au Bénin.</p>
                 </div>
