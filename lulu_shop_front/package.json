@@ -7,8 +7,10 @@
     "build": "next build",
     "check:seo": "node scripts/check-seo.mjs",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --cache --cache-location node_modules/.cache/eslint/.eslintcache",
+    "lint:fix": "eslint . --fix --cache --cache-location node_modules/.cache/eslint/.eslintcache",
     "type-check": "tsc --noEmit",
+    "typecheck": "pnpm run type-check",
     "test": "vitest run",
     "test:watch": "vitest"
   },

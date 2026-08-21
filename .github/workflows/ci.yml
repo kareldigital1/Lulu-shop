@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [master, dev]
+  pull_request:
+
+# Une nouvelle poussée annule la vérification précédente encore en cours.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint, types, tests et build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      # Le build front n'a besoin d'aucun secret : le sitemap et les pages
+      # publiques retombent sur leurs données de repli si l'API est absente.
+      # On fixe malgré tout ces valeurs pour un comportement déterministe.
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+      NEXT_PUBLIC_APP_URL: http://localhost:3000
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer pnpm
+        # La version vient du champ "packageManager" du package.json racine.
+        uses: pnpm/action-setup@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Installer les dépendances
+        # --frozen-lockfile échoue si pnpm-lock.yaml n'est pas à jour avec les
+        # package.json : c'est voulu, cela attrape les lockfiles oubliés.
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Vérification des types
+        run: pnpm typecheck
+
+      - name: Tests
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build

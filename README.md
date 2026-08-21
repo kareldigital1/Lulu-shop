@@ -79,6 +79,23 @@ pnpm --filter backend-lulu seed
 pnpm --filter lulu_shop_front lint
 ```
 
+### Intégration continue
+
+`.github/workflows/ci.yml` rejoue ces quatre vérifications à chaque poussée sur
+`master` ou `dev`, et sur chaque pull request :
+
+```bash
+pnpm lint        # ESLint : qualité, React, Next.js et règles d'architecture
+pnpm typecheck   # tsc sur le backend puis le frontend
+pnpm test        # suites Vitest des deux projets
+pnpm build       # build backend puis frontend
+```
+
+La CI ne consomme **aucun secret** : le backend ne fait que compiler, et le
+frontend retombe sur ses données de repli quand l'API est absente. Elle ne
+remplace donc pas les contrôles `check:*`, qui exigent une vraie base MongoDB
+et restent à lancer manuellement avant une mise en production.
+
 ## Variables d'environnement
 
 ### `backend-lulu/.env`

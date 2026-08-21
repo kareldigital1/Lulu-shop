@@ -16,7 +16,10 @@
     "type-check:front": "pnpm --filter lulu_shop_front type-check",
     "type-check:back": "pnpm --filter backend-lulu type-check",
     "type-check": "pnpm run type-check:back && pnpm run type-check:front",
+    "typecheck": "pnpm run type-check",
     "lint:front": "pnpm --filter lulu_shop_front lint",
+    "lint": "pnpm -r --if-present lint",
+    "lint:fix": "pnpm -r --if-present lint:fix",
     "test": "pnpm -r --if-present test",
     "seed:back": "pnpm --filter backend-lulu seed"
   }

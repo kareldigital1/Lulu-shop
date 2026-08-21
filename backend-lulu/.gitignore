@@ -1,5 +1,9 @@
 node_modules/
 dist/
-.env
 coverage/
+*.tsbuildinfo
 *.log
+
+# Secrets locaux. .env.example reste suivi comme gabarit.
+.env
+.env.local

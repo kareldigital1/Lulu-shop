@@ -1,16 +1,40 @@
+# Dépendances
 node_modules/
+# Restes d'installations npm échouées (à supprimer)
+node_modules_broken_*/
+
+# Builds
 dist/
 .next/
+out/
+build/
+
+# Caches et artefacts d'outillage
+coverage/
+*.tsbuildinfo
+.eslintcache
 .vercel/
+.turbo/
+
+# Secrets et configuration locale.
+# Les gabarits .env.example restent suivis : le README demande de les copier.
 .env
 .env.local
 .env.*.local
-coverage/
-*.log
-backend-lulu/node_modules/
-backend-lulu/dist/
-lulu_shop_front/node_modules/
-lulu_shop_front/.next/
 
-# Restes d'installations npm échouées (à supprimer)
-node_modules_broken_*/
+# Sorties locales et travaux temporaires
+tmp/
+output/
+*.log
+
+# Ancien site statique, conservé en local mais hors du dépôt.
+# Les slashs initiaux ancrent les motifs à la racine : sans eux,
+# "images/" ignorerait aussi lulu_shop_front/public/images/,
+# qui est bien utilisé par l'application.
+/index.html
+/images/
+
+# Système
+.DS_Store
+Thumbs.db
+

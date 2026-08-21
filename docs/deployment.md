@@ -159,8 +159,11 @@ Exécute cette checklist dans l'ordre :
 Avant chaque mise en production :
 
 ```bash
-# Depuis la racine du dépôt
+# Depuis la racine du dépôt.
+# La CI (.github/workflows/ci.yml) rejoue déjà install, lint, typecheck, test
+# et build à chaque poussée : ces commandes servent surtout en local.
 pnpm install --frozen-lockfile
+pnpm lint
 pnpm test
 pnpm type-check
 pnpm --filter backend-lulu build

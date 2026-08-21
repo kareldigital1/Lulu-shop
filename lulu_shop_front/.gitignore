@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...mais le gabarit doit rester suivi : le README demande de le copier.
+!.env.example
 
 # vercel
 .vercel
