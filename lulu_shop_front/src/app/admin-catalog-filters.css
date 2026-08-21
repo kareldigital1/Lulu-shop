@@ -1,0 +1,299 @@
+.admin-catalog-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 27rem);
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.9rem;
+  padding: 0.58rem 0.72rem;
+  border-radius: 999px;
+  background: #eee8dd;
+}
+
+.admin-catalog-filter-trigger {
+  display: inline-flex;
+  gap: 0.7rem;
+  align-items: center;
+  justify-self: start;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--admin-text);
+  cursor: pointer;
+}
+
+.admin-catalog-filter-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  flex: 0 0 2.35rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.admin-catalog-filter-copy {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.admin-catalog-filter-copy strong {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.admin-catalog-filter-copy span {
+  overflow: hidden;
+  color: var(--admin-text-muted);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.admin-catalog-filter-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding-inline: 0.3rem;
+  border-radius: 999px;
+  background: var(--admin-primary);
+  color: var(--color-text-on-primary);
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.admin-catalog-sort {
+  position: relative;
+  display: block;
+}
+
+.admin-catalog-sort select {
+  width: 100%;
+  min-height: 2.65rem;
+  padding: 0 2.8rem 0 1rem;
+  border: 1px solid var(--admin-text);
+  border-radius: 999px;
+  outline: none;
+  appearance: none;
+  background: transparent;
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.admin-catalog-sort svg {
+  position: absolute;
+  top: 50%;
+  right: 0.78rem;
+  width: 1.65rem;
+  height: 1.65rem;
+  padding: 0.34rem;
+  border: 1px solid var(--admin-text);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.admin-catalog-filter-panel {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 1.15fr;
+  gap: 1rem;
+  margin: -0.15rem 0 1rem;
+  padding: 1rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.85rem;
+  background: var(--admin-surface);
+  box-shadow: 0 12px 28px rgba(73, 46, 50, 0.08);
+}
+
+.admin-catalog-filter-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.admin-catalog-filter-group legend {
+  margin-bottom: 0.55rem;
+  color: var(--admin-text);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-catalog-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.admin-catalog-filter-option {
+  min-height: 1.95rem;
+  padding: 0.34rem 0.68rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--admin-text-muted);
+  font: inherit;
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 150ms ease;
+}
+
+.admin-catalog-filter-option:hover {
+  border-color: var(--admin-primary);
+  color: var(--admin-primary);
+}
+
+.admin-catalog-filter-option.is-active {
+  border-color: var(--admin-primary);
+  background: var(--admin-primary);
+  color: var(--color-text-on-primary);
+}
+
+.admin-catalog-filter-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--admin-border);
+}
+
+.admin-catalog-filter-reset {
+  border: 0;
+  background: transparent;
+  color: var(--admin-primary);
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-catalog-filter-reset:disabled {
+  color: var(--admin-text-muted);
+  cursor: default;
+  opacity: 0.55;
+}
+
+.admin-catalog-empty {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  padding: 2.5rem 1rem;
+  color: var(--admin-text-muted);
+  text-align: center;
+}
+
+.admin-catalog-empty strong {
+  color: var(--admin-text);
+  font-size: 0.85rem;
+}
+
+.admin-catalog-empty span {
+  font-size: 0.7rem;
+}
+
+.admin-list-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding-top: 0.75rem;
+}
+
+.admin-list-pagination > span {
+  color: var(--admin-text-muted);
+  font-size: 0.55rem;
+}
+
+.admin-list-pagination > div {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.admin-list-pagination button {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  border: 1px solid var(--admin-border);
+  border-radius: 50%;
+  background: var(--admin-surface);
+  color: var(--admin-primary);
+  cursor: pointer;
+}
+
+.admin-list-pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.admin-ui-row-actions .admin-ui-icon-action {
+  width: 2.1rem;
+  min-width: 2.1rem;
+  min-height: 2.1rem;
+  padding: 0;
+  border-radius: 0.55rem;
+}
+
+.admin-ui-row-actions .admin-ui-icon-action.restock {
+  border-color: #cfe7d7;
+  background: #eef8f1;
+  color: #167243;
+  box-shadow: none;
+}
+
+.admin-ui-row-actions .admin-ui-icon-action.restock:hover:not(:disabled) {
+  border-color: #167243;
+  background: #167243;
+  color: var(--neutral-0);
+}
+
+.admin-ui-row-actions .admin-ui-icon-action.delete {
+  border-color: transparent;
+  background: var(--color-error-surface);
+  color: var(--color-error);
+  box-shadow: none;
+}
+
+.admin-ui-row-actions .admin-ui-icon-action.delete:hover:not(:disabled) {
+  border-color: var(--color-error);
+  background: var(--color-error);
+  color: var(--neutral-0);
+}
+
+@media (max-width: 900px) {
+  .admin-catalog-toolbar {
+    grid-template-columns: 1fr;
+    border-radius: 1rem;
+  }
+
+  .admin-catalog-sort {
+    width: 100%;
+  }
+
+  .admin-catalog-filter-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-catalog-filter-actions {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-catalog-filter-copy span {
+    display: none;
+  }
+}

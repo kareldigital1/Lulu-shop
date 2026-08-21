@@ -1,0 +1,112 @@
+.product-preview-section {
+  padding-block: clamp(3.25rem, 5vw, 4.75rem);
+}
+
+.product-preview-section .container {
+  max-width: 1120px;
+}
+
+.product-preview-section .section-label {
+  margin-bottom: 0.45rem;
+}
+
+.product-preview-section .section-title {
+  margin-bottom: 0.65rem;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+}
+
+.product-preview-section .section-subtitle {
+  margin-bottom: 1.75rem;
+  font-size: 1rem;
+}
+
+.product-preview-section .products-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.product-preview-section .products-grid.products-grid-preview-1 {
+  grid-template-columns: minmax(240px, 320px);
+  justify-content: center;
+}
+
+.product-preview-section .products-grid.products-grid-preview-2 {
+  grid-template-columns: repeat(2, minmax(240px, 320px));
+  justify-content: center;
+}
+
+.product-preview-section .products-grid.products-grid-preview-3 {
+  grid-template-columns: repeat(3, minmax(220px, 300px));
+  justify-content: center;
+}
+
+.product-preview-section .product-card {
+  border-radius: 1rem;
+}
+
+.product-preview-section .product-img {
+  height: auto;
+  aspect-ratio: 5 / 4.35;
+}
+
+.product-preview-section .product-info {
+  gap: 0.35rem;
+  padding: 0.85rem;
+}
+
+.product-preview-section .product-category {
+  margin-bottom: 0;
+  font-size: 0.6rem;
+}
+
+.product-preview-section .product-name {
+  margin-bottom: 0.25rem;
+  font-size: 1.15rem;
+}
+
+.product-preview-section .product-price {
+  margin-bottom: 0.65rem;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.product-preview-section .product-btn {
+  min-height: 2.35rem;
+  padding-inline: 0.7rem;
+  font-size: 0.65rem;
+}
+
+.product-preview-section .catalog-preview-cta {
+  gap: 0;
+  margin-top: 1.75rem;
+  padding-top: 0;
+}
+
+@media (max-width: 1100px) {
+  .product-preview-section .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 700px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-preview-section {
+    padding-block: 2.75rem;
+  }
+
+  .product-preview-section .section-subtitle {
+    margin-bottom: 1.35rem;
+  }
+
+  .product-preview-section .products-grid {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+  }
+
+  .product-preview-section .products-grid.products-grid-preview-1,
+  .product-preview-section .products-grid.products-grid-preview-2,
+  .product-preview-section .products-grid.products-grid-preview-3 {
+    grid-template-columns: 1fr;
+  }
+}

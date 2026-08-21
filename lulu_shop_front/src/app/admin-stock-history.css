@@ -1,0 +1,390 @@
+.admin-stock-history {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding: 1rem;
+}
+
+.admin-stock-history-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-stock-history-head h2 {
+  margin: 0.12rem 0 0;
+  color: var(--admin-text);
+  font-size: 0.9rem;
+}
+
+.admin-stock-history-head p {
+  margin: 0.18rem 0 0;
+  color: var(--admin-text-muted);
+  font-size: 0.58rem;
+}
+
+.admin-stock-history-refresh {
+  display: grid;
+  place-items: center;
+  width: 1.95rem;
+  height: 1.95rem;
+  padding: 0;
+  border: 1px solid var(--admin-border);
+  border-radius: 50%;
+  background: var(--admin-surface);
+  color: var(--admin-primary);
+  cursor: pointer;
+}
+
+.admin-stock-history-refresh:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.admin-stock-history-filters {
+  display: grid;
+  grid-template-columns: minmax(13rem, 1.5fr) minmax(10rem, 1fr) minmax(8rem, 0.72fr) minmax(8rem, 0.72fr) auto;
+  gap: 0.55rem;
+  align-items: end;
+  padding: 0.8rem 0;
+}
+
+.admin-stock-history-filters label {
+  display: grid;
+  gap: 0.27rem;
+  min-width: 0;
+  color: var(--admin-text-muted);
+  font-size: 0.53rem;
+  font-weight: 700;
+}
+
+.admin-stock-history-filters input,
+.admin-stock-history-filters select {
+  width: 100%;
+  min-width: 0;
+  height: 2.15rem;
+  padding: 0 0.58rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.45rem;
+  outline: 0;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 0.61rem;
+}
+
+.admin-stock-history-filters input:focus,
+.admin-stock-history-filters select:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 2px var(--admin-primary-subtle);
+}
+
+.admin-stock-history-search > div,
+.admin-stock-history-date {
+  position: relative;
+}
+
+.admin-stock-history-search svg,
+.admin-stock-history-date svg {
+  position: absolute;
+  top: 50%;
+  left: 0.58rem;
+  z-index: 1;
+  color: var(--admin-text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.admin-stock-history-search input,
+.admin-stock-history-date input {
+  padding-left: 1.8rem;
+}
+
+.admin-stock-history-filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+
+.admin-stock-history-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  height: 2.15rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.45rem;
+  background: var(--admin-surface);
+  color: var(--admin-text-muted);
+  font: inherit;
+  font-size: 0.56rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-stock-history-table-head,
+.admin-stock-history-row {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1.5fr) minmax(8rem, 0.72fr) minmax(9rem, 0.8fr) minmax(7rem, 0.65fr) minmax(9rem, 0.75fr);
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.admin-stock-history-table-head {
+  padding: 0.48rem 0.65rem;
+  border-radius: 0.42rem;
+  background: #f7f3ed;
+  color: var(--admin-text-muted);
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.admin-stock-history-list {
+  min-height: 8rem;
+}
+
+.admin-stock-history-row {
+  padding: 0.62rem 0.65rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-stock-history-product {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+  min-width: 0;
+}
+
+.admin-stock-history-icon {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.55rem;
+}
+
+.admin-stock-history-icon.increase {
+  background: #e8f5ec;
+  color: #167243;
+}
+
+.admin-stock-history-icon.decrease {
+  background: #f8e9eb;
+  color: #a53649;
+}
+
+.admin-stock-history-product > div {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.admin-stock-history-product strong {
+  overflow: hidden;
+  color: var(--admin-text);
+  font-size: 0.62rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-stock-history-product small {
+  overflow: hidden;
+  color: var(--admin-text-muted);
+  font-size: 0.49rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-stock-history-quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--admin-text-secondary);
+  font-size: 0.61rem;
+}
+
+.admin-stock-history-quantity strong {
+  color: var(--admin-text);
+}
+
+.admin-stock-history-quantity em {
+  margin-left: 0.1rem;
+  padding: 0.2rem 0.38rem;
+  border-radius: 999px;
+  font-size: 0.5rem;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.admin-stock-history-quantity em.increase {
+  background: #e8f5ec;
+  color: #167243;
+}
+
+.admin-stock-history-quantity em.decrease {
+  background: #f8e9eb;
+  color: #a53649;
+}
+
+.admin-stock-history-reason {
+  width: fit-content;
+  padding: 0.23rem 0.42rem;
+  border-radius: 999px;
+  font-size: 0.49rem;
+  font-weight: 750;
+}
+
+.admin-stock-history-reason.increase {
+  background: #e8f5ec;
+  color: #167243;
+}
+
+.admin-stock-history-reason.decrease {
+  background: #f8e9eb;
+  color: #a53649;
+}
+
+.admin-stock-history-order,
+.admin-stock-history-row time {
+  color: var(--admin-text-secondary);
+  font-size: 0.54rem;
+}
+
+.admin-stock-history-order {
+  font-weight: 700;
+}
+
+.admin-stock-history-empty {
+  display: grid;
+  place-items: center;
+  gap: 0.35rem;
+  min-height: 11rem;
+  color: var(--admin-text-muted);
+  text-align: center;
+}
+
+.admin-stock-history-empty strong {
+  color: var(--admin-text);
+  font-size: 0.68rem;
+}
+
+.admin-stock-history-empty p {
+  margin: 0;
+  font-size: 0.56rem;
+}
+
+.admin-stock-history-notice {
+  margin: 0 0 0.7rem;
+}
+
+.admin-stock-history-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding-top: 0.75rem;
+}
+
+.admin-stock-history-pagination > span {
+  color: var(--admin-text-muted);
+  font-size: 0.55rem;
+}
+
+.admin-stock-history-pagination > div {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.admin-stock-history-pagination button {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  border: 1px solid var(--admin-border);
+  border-radius: 50%;
+  background: var(--admin-surface);
+  color: var(--admin-primary);
+  cursor: pointer;
+}
+
+.admin-stock-history-pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.admin-stock-history-refresh .is-spinning {
+  animation: admin-stock-history-spin 700ms linear infinite;
+}
+
+@keyframes admin-stock-history-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 72rem) {
+  .admin-stock-history-filters {
+    grid-template-columns: 1.4fr 1fr 0.8fr 0.8fr;
+  }
+
+  .admin-stock-history-filter-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 56rem) {
+  .admin-stock-history-table-head {
+    display: none;
+  }
+
+  .admin-stock-history-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.48rem;
+    align-items: start;
+  }
+
+  .admin-stock-history-quantity,
+  .admin-stock-history-reason,
+  .admin-stock-history-order,
+  .admin-stock-history-row time {
+    grid-column: 1 / -1;
+    margin-left: 2.55rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .admin-stock-history-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-stock-history-search,
+  .admin-stock-history-filter-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 32rem) {
+  .admin-stock-history {
+    padding: 0.8rem;
+  }
+
+  .admin-stock-history-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-stock-history-search,
+  .admin-stock-history-filter-actions {
+    grid-column: auto;
+  }
+
+  .admin-stock-history-filter-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

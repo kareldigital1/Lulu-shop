@@ -1,0 +1,61 @@
+/*
+ * Ce fichier est chargé après les styles historiques de la boutique.
+ * Une photo produit reste donc visible en entier, quelle que soit sa taille.
+ */
+
+.hero-product-img,
+.product-img,
+.product-detail-media,
+.cart-item-image,
+.cart-drawer-item-image {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(160deg, #fbf8f2, #f2eadf);
+}
+
+.product-img,
+.product-card-catalog .product-img {
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.product-photo-backdrop {
+  position: absolute;
+  inset: -12%;
+  z-index: 0;
+  filter: blur(20px) saturate(0.78);
+  opacity: 0.34;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+.product-photo-backdrop .product-photo-backdrop-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-product-img img,
+.product-img img,
+.product-detail-media img,
+.cart-item-image img,
+.cart-drawer-item-image img,
+.admin-editor-preview-image,
+.admin-ui-table-thumb,
+.admin-ui-preview-image,
+.admin-ui-image-dropzone-preview,
+.admin-ui-hero-product-image {
+  position: relative;
+  z-index: 1;
+  object-fit: contain;
+  object-position: center;
+}
+
+.product-card:hover .product-img img,
+.cart-item-image:hover img,
+.cart-drawer-item-image:hover img {
+  transform: none;
+}

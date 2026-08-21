@@ -1,0 +1,609 @@
+.admin-analytics-dashboard {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.admin-analytics-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-analytics-heading h2,
+.admin-analytics-card-head h3 {
+  margin: 0;
+  color: var(--admin-text);
+}
+
+.admin-analytics-heading h2 {
+  margin-top: 0.2rem;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.admin-analytics-heading p,
+.admin-analytics-card-head p {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+  color: var(--admin-text-muted);
+}
+
+.admin-analytics-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.25rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.65rem;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-analytics-refresh:hover:not(:disabled) {
+  border-color: var(--admin-primary);
+  color: var(--admin-primary);
+}
+
+.admin-analytics-refresh:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.admin-analytics-refresh .is-spinning {
+  animation: admin-analytics-spin 0.8s linear infinite;
+}
+
+@keyframes admin-analytics-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.admin-analytics-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.admin-ui-card.admin-analytics-kpi {
+  display: grid;
+  gap: 0.4rem;
+  min-height: 8.2rem;
+  padding: 1rem;
+}
+
+.admin-analytics-kpi-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.15rem;
+  border-radius: 0.55rem;
+}
+
+.admin-analytics-kpi-icon.burgundy {
+  background: var(--admin-primary-subtle);
+  color: var(--admin-primary);
+}
+
+.admin-analytics-kpi-icon.gold {
+  background: #fff5d9;
+  color: #9a6a05;
+}
+
+.admin-analytics-kpi-icon.blue {
+  background: #e9f1f8;
+  color: #315f86;
+}
+
+.admin-analytics-kpi-icon.green {
+  background: #e8f5ed;
+  color: #23865b;
+}
+
+.admin-analytics-kpi > span:not(.admin-analytics-kpi-icon) {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--admin-text-muted);
+}
+
+.admin-analytics-kpi > strong {
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  line-height: 1.1;
+  color: var(--admin-text);
+}
+
+.admin-analytics-kpi > small {
+  font-size: 0.65rem;
+  line-height: 1.4;
+  color: var(--admin-text-muted);
+}
+
+.admin-analytics-data-warning {
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #ead9a7;
+  border-radius: 0.7rem;
+  background: #fff9e9;
+  font-size: 0.72rem;
+  color: #705716;
+}
+
+.admin-analytics-primary-grid,
+.admin-analytics-rankings {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(16rem, 0.8fr);
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.admin-analytics-rankings {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-ui-card.admin-analytics-chart-card,
+.admin-ui-card.admin-analytics-orders-card,
+.admin-ui-card.admin-analytics-stock-chart,
+.admin-ui-card.admin-analytics-ranking-card,
+.admin-ui-card.admin-analytics-customers-card {
+  min-width: 0;
+  padding: 1rem;
+}
+
+.admin-analytics-customers-grid {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.75fr) minmax(0, 1.25fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.admin-analytics-customer-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.admin-analytics-customer-metrics article {
+  display: grid;
+  align-content: start;
+  gap: 0.32rem;
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.6rem;
+  background: var(--admin-background);
+}
+
+.admin-analytics-customer-icon {
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  margin-bottom: 0.12rem;
+  border-radius: 0.48rem;
+}
+
+.admin-analytics-customer-icon.burgundy {
+  background: var(--admin-primary-subtle);
+  color: var(--admin-primary);
+}
+
+.admin-analytics-customer-icon.gold {
+  background: #fff5d9;
+  color: #9a6a05;
+}
+
+.admin-analytics-customer-icon.green {
+  background: #e8f5ed;
+  color: #23865b;
+}
+
+.admin-analytics-customer-metrics small {
+  color: var(--admin-text-muted);
+  font-size: 0.58rem;
+  font-weight: 700;
+}
+
+.admin-analytics-customer-metrics strong {
+  overflow: hidden;
+  color: var(--admin-text);
+  font-size: 0.88rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-analytics-top-customers {
+  min-width: 0;
+  padding-left: 1rem;
+  border-left: 1px solid var(--admin-border);
+}
+
+.admin-analytics-top-customers > strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--admin-text);
+  font-size: 0.7rem;
+}
+
+.admin-analytics-ranking-list.customers article {
+  padding-block: 0.5rem;
+}
+
+.admin-analytics-ranking-list.customers .admin-analytics-ranking-track > span {
+  background: linear-gradient(90deg, var(--admin-primary), #d3a358);
+}
+
+.admin-analytics-empty.compact {
+  min-height: 5rem;
+}
+
+.admin-analytics-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.admin-analytics-card-head.compact {
+  align-items: center;
+}
+
+.admin-analytics-card-head h3 {
+  margin-top: 0.15rem;
+  font-size: 0.95rem;
+}
+
+.admin-analytics-period-switch {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 0.18rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.55rem;
+  background: var(--admin-background);
+}
+
+.admin-analytics-period-switch button {
+  min-height: 1.85rem;
+  padding: 0.3rem 0.6rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: var(--admin-text-muted);
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-analytics-period-switch button.active {
+  background: var(--admin-surface);
+  box-shadow: 0 1px 4px rgba(47, 37, 32, 0.09);
+  color: var(--admin-primary);
+}
+
+.admin-analytics-line-chart {
+  min-width: 0;
+}
+
+.admin-analytics-line-chart svg {
+  width: 100%;
+  height: 13.2rem;
+  overflow: visible;
+}
+
+.admin-analytics-grid-line {
+  stroke: var(--admin-border);
+  stroke-width: 1;
+  stroke-dasharray: 5 6;
+  vector-effect: non-scaling-stroke;
+}
+
+.admin-analytics-area {
+  fill: color-mix(in srgb, var(--admin-primary) 10%, transparent);
+}
+
+.admin-analytics-line {
+  fill: none;
+  stroke: var(--admin-primary);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.admin-analytics-point {
+  fill: var(--admin-surface);
+  stroke: var(--admin-primary);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.admin-analytics-axis-value {
+  fill: var(--admin-text-muted);
+  font-family: var(--font-montserrat);
+  font-size: 10px;
+}
+
+.admin-analytics-axis-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.35rem;
+  margin-top: -0.45rem;
+  padding-inline: 0.25rem;
+}
+
+.admin-analytics-axis-labels span {
+  overflow: hidden;
+  font-size: 0.6rem;
+  color: var(--admin-text-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-analytics-order-overview {
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  padding-top: 0.45rem;
+}
+
+.admin-analytics-donut {
+  display: grid;
+  place-items: center;
+  width: 8.4rem;
+  height: 8.4rem;
+  border-radius: 50%;
+}
+
+.admin-analytics-donut > span {
+  display: grid;
+  place-items: center;
+  width: 5.65rem;
+  height: 5.65rem;
+  border-radius: 50%;
+  background: var(--admin-surface);
+}
+
+.admin-analytics-donut strong {
+  font-size: 1.45rem;
+  line-height: 1;
+  color: var(--admin-text);
+}
+
+.admin-analytics-donut small {
+  margin-top: 0.2rem;
+  font-size: 0.63rem;
+  color: var(--admin-text-muted);
+}
+
+.admin-analytics-status-list {
+  display: grid;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.admin-analytics-status-list > div {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.55rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--admin-border);
+  font-size: 0.7rem;
+  color: var(--admin-text-muted);
+}
+
+.admin-analytics-status-list > div:last-child {
+  border-bottom: 0;
+}
+
+.admin-analytics-status-list strong {
+  color: var(--admin-text);
+}
+
+.admin-analytics-status-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+}
+
+.admin-analytics-ranking-list {
+  display: grid;
+}
+
+.admin-analytics-ranking-list article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-analytics-ranking-list article:last-child {
+  border-bottom: 0;
+}
+
+.admin-analytics-rank {
+  display: grid;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 0.48rem;
+  background: var(--admin-primary-subtle);
+  font-size: 0.67rem;
+  font-weight: 800;
+  color: var(--admin-primary);
+}
+
+.admin-analytics-ranking-list article > div {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.admin-analytics-ranking-list article > div > strong {
+  overflow: hidden;
+  font-size: 0.72rem;
+  color: var(--admin-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-analytics-ranking-list article small {
+  overflow: hidden;
+  font-size: 0.6rem;
+  color: var(--admin-text-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-analytics-ranking-list article > strong {
+  font-size: 0.68rem;
+  color: var(--admin-text);
+  white-space: nowrap;
+}
+
+.admin-analytics-ranking-track {
+  display: block;
+  width: 100%;
+  height: 0.28rem;
+  margin-top: 0.2rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--admin-background);
+}
+
+.admin-analytics-ranking-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--admin-primary), #c98d74);
+}
+
+.admin-analytics-ranking-list.categories
+  .admin-analytics-ranking-track
+  > span {
+  background: linear-gradient(90deg, #b38320, #e0bf68);
+}
+
+.admin-analytics-empty {
+  display: grid;
+  place-items: center;
+  min-height: 9rem;
+  padding: 1rem;
+  text-align: center;
+  color: var(--admin-text-muted);
+}
+
+.admin-analytics-empty p {
+  max-width: 32ch;
+  margin: 0.45rem 0 0;
+  font-size: 0.72rem;
+}
+
+.admin-analytics-loading {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  min-height: 15rem;
+  color: var(--admin-text-muted);
+}
+
+.admin-analytics-loading button {
+  border: 0;
+  background: transparent;
+  color: var(--admin-primary);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 1100px) {
+  .admin-analytics-kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-analytics-primary-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-analytics-order-overview {
+    grid-template-columns: auto minmax(12rem, 1fr);
+    align-items: center;
+  }
+
+  .admin-analytics-customers-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-analytics-top-customers {
+    padding-top: 0.8rem;
+    padding-left: 0;
+    border-top: 1px solid var(--admin-border);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .admin-analytics-heading {
+    align-items: flex-start;
+  }
+
+  .admin-analytics-rankings {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-analytics-line-chart svg {
+    height: 11rem;
+  }
+
+  .admin-analytics-customer-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .admin-analytics-heading,
+  .admin-analytics-card-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-analytics-refresh {
+    align-self: flex-start;
+  }
+
+  .admin-analytics-kpis {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-ui-card.admin-analytics-kpi {
+    min-height: 7.4rem;
+  }
+
+  .admin-analytics-period-switch {
+    align-self: flex-start;
+  }
+
+  .admin-analytics-order-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-analytics-ranking-list article {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .admin-analytics-ranking-list article > strong {
+    grid-column: 2;
+  }
+}

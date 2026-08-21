@@ -1,0 +1,52 @@
+.admin-product-status-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(8.5rem, 0.72fr);
+  gap: 0.8rem;
+  align-items: center;
+  padding: 0.7rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.42rem;
+  background: #faf8f5;
+}
+
+.admin-product-status-card > div {
+  display: grid;
+  gap: 0.16rem;
+}
+
+.admin-product-status-card strong {
+  color: var(--admin-text);
+  font-size: 0.68rem;
+}
+
+.admin-product-status-card span {
+  color: var(--admin-text-muted);
+  font-size: 0.56rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.admin-product-status-card select {
+  width: 100%;
+  min-height: 2.25rem;
+  padding: 0 0.65rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.42rem;
+  outline: 0;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.admin-product-status-card select:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 2px var(--admin-primary-subtle);
+}
+
+@media (max-width: 38rem) {
+  .admin-product-status-card {
+    grid-template-columns: 1fr;
+  }
+}

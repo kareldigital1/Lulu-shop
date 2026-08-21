@@ -1,0 +1,52 @@
+.admin-ui-topbar-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.85rem;
+  gap: 0.55rem;
+  align-items: center;
+  min-width: 0;
+  max-width: 11rem;
+  padding: 0.38rem 0.42rem 0.38rem 0.68rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.7rem;
+  background: var(--admin-surface);
+  text-align: left;
+}
+
+.admin-ui-topbar-profile > div,
+.admin-ui-sidebar-profile > div {
+  min-width: 0;
+}
+
+.admin-ui-topbar-profile strong,
+.admin-ui-sidebar-profile strong {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.admin-ui-topbar-profile strong {
+  font-size: 0.71rem;
+}
+
+.admin-ui-topbar-profile span:not(.admin-ui-profile-avatar) {
+  font-size: 0.6rem;
+}
+
+.admin-ui-profile-avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  flex: 0 0 1.85rem;
+  overflow: hidden;
+  border: 1px solid var(--admin-border);
+  border-radius: 50%;
+  background: var(--admin-surface);
+}
+
+.admin-ui-profile-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}

@@ -1,0 +1,211 @@
+.admin-backup-panel {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.admin-backup-intro {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
+}
+
+.admin-backup-intro-icon,
+.admin-backup-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 0.7rem;
+}
+
+.admin-backup-intro-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--admin-primary);
+  background: var(--admin-primary-soft);
+}
+
+.admin-backup-intro h2,
+.admin-backup-card h3 {
+  margin: 0;
+  color: var(--admin-text);
+}
+
+.admin-backup-intro h2 {
+  margin-top: 0.14rem;
+  font-size: 1rem;
+}
+
+.admin-backup-intro p,
+.admin-backup-card p,
+.admin-backup-security p {
+  margin: 0.24rem 0 0;
+  color: var(--admin-text-muted);
+  font-size: 0.69rem;
+  line-height: 1.55;
+}
+
+.admin-backup-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.admin-backup-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 17rem;
+  padding: 1.1rem;
+  overflow: hidden;
+}
+
+.admin-backup-card.featured {
+  border-color: rgba(140, 59, 74, 0.28);
+  box-shadow: 0 0.75rem 2rem rgba(83, 40, 48, 0.08);
+}
+
+.admin-backup-card-icon {
+  width: 2.45rem;
+  height: 2.45rem;
+}
+
+.admin-backup-card-icon.json {
+  color: #8a6812;
+  background: #fff5d8;
+}
+
+.admin-backup-card-icon.mongodb {
+  color: #23744f;
+  background: #e6f3eb;
+}
+
+.admin-backup-card-copy {
+  display: grid;
+  gap: 0.22rem;
+  margin: 0.75rem 0 0.85rem;
+}
+
+.admin-backup-card-label,
+.admin-backup-recommended {
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.admin-backup-card-label {
+  color: var(--admin-text-muted);
+}
+
+.admin-backup-card h3 {
+  font-size: 0.94rem;
+}
+
+.admin-backup-card ul {
+  display: grid;
+  gap: 0.38rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-backup-card li {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  color: var(--admin-text);
+  font-size: 0.63rem;
+}
+
+.admin-backup-card li svg {
+  flex: 0 0 auto;
+  color: #23744f;
+}
+
+.admin-backup-card li:last-child svg {
+  color: var(--admin-primary);
+}
+
+.admin-backup-card .admin-ui-button {
+  margin-top: auto;
+}
+
+.admin-backup-recommended {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  color: var(--admin-primary);
+  background: var(--admin-primary-soft);
+}
+
+.admin-backup-success,
+.admin-backup-error {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.72rem 0.85rem;
+  border-radius: 0.65rem;
+  font-size: 0.65rem;
+}
+
+.admin-backup-success {
+  color: #17633f;
+  background: #e8f5ed;
+}
+
+.admin-backup-error {
+  color: #98374a;
+  background: #f9e9ec;
+  white-space: pre-line;
+}
+
+.admin-backup-success strong {
+  overflow-wrap: anywhere;
+}
+
+.admin-backup-security {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  color: var(--admin-primary);
+}
+
+.admin-backup-security svg {
+  flex: 0 0 auto;
+  margin-top: 0.06rem;
+}
+
+.admin-backup-security strong {
+  color: var(--admin-text);
+  font-size: 0.68rem;
+}
+
+@media (max-width: 760px) {
+  .admin-backup-options {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-backup-card {
+    min-height: 15.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-backup-intro {
+    align-items: flex-start;
+  }
+
+  .admin-backup-recommended {
+    position: static;
+    margin-bottom: 0.7rem;
+  }
+}

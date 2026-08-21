@@ -1,0 +1,133 @@
+.admin-documents-panel {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.admin-documents-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.admin-document-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: start;
+  min-height: 8.5rem;
+  padding: 0.8rem;
+}
+
+.admin-document-card .btn {
+  grid-column: 1 / -1;
+  align-self: end;
+}
+
+.admin-document-card-icon {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.45rem;
+  background: var(--admin-primary-subtle);
+  color: var(--admin-primary);
+}
+
+.admin-document-card strong {
+  color: var(--admin-text);
+  font-size: 0.68rem;
+}
+
+.admin-document-card p {
+  margin-top: 0.16rem;
+  color: var(--admin-text-muted);
+  font-size: 0.56rem;
+  line-height: 1.45;
+}
+
+.admin-documents-list {
+  padding: 0.9rem;
+}
+
+.admin-documents-list .admin-ui-card-head h3 {
+  margin-top: 0.08rem;
+  color: var(--admin-text);
+  font-size: 0.8rem;
+}
+
+.admin-documents-table {
+  display: grid;
+  margin-top: 0.7rem;
+  overflow-x: auto;
+}
+
+.admin-documents-table-head,
+.admin-documents-row {
+  display: grid;
+  grid-template-columns: minmax(170px, 1.2fr) minmax(150px, 1fr) minmax(150px, 1fr) 100px;
+  gap: 0.75rem;
+  align-items: center;
+  min-width: 650px;
+}
+
+.admin-documents-table-head {
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.4rem;
+  background: var(--neutral-50);
+  color: var(--admin-text-muted);
+  font-size: 0.55rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.admin-documents-row {
+  padding: 0.62rem 0.65rem;
+  border-bottom: 1px solid var(--admin-border);
+  color: var(--admin-text-secondary);
+  font-size: 0.63rem;
+}
+
+.admin-documents-row > div {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--admin-primary);
+}
+
+.admin-documents-row strong {
+  color: var(--admin-text);
+}
+
+.admin-documents-empty {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  min-height: 7rem;
+  padding: 1.4rem;
+  color: var(--admin-text-muted);
+  font-size: 0.63rem;
+  text-align: center;
+}
+
+.admin-documents-error {
+  margin-top: 0.65rem;
+  padding: 0.65rem;
+  border-radius: 0.4rem;
+  background: var(--color-error-surface);
+  color: var(--color-error);
+  font-size: 0.62rem;
+}
+
+@media (max-width: 1100px) {
+  .admin-documents-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-documents-cards {
+    grid-template-columns: 1fr;
+  }
+}

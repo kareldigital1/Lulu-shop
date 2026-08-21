@@ -1,0 +1,320 @@
+.admin-store-settings {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.admin-store-heading,
+.admin-documents-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+}
+
+.admin-store-heading-icon,
+.admin-documents-heading-icon {
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex: 0 0 2.4rem;
+  border-radius: 0.55rem;
+  background: var(--admin-primary-subtle);
+  color: var(--admin-primary);
+}
+
+.admin-store-heading h2,
+.admin-documents-heading h2 {
+  margin: 0.08rem 0 0;
+  color: var(--admin-text);
+  font-size: 0.94rem;
+}
+
+.admin-store-heading p,
+.admin-documents-heading p {
+  margin: 0.16rem 0 0;
+  color: var(--admin-text-muted);
+  font-size: 0.64rem;
+}
+
+.admin-store-workspace {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.admin-store-tabs {
+  position: sticky;
+  top: 1rem;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.55rem;
+}
+
+.admin-store-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.55rem;
+  padding: 0.55rem 0.65rem;
+  border: 0;
+  border-radius: 0.42rem;
+  background: transparent;
+  color: var(--admin-text-secondary);
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-store-tabs button:hover,
+.admin-store-tabs button.active {
+  background: var(--admin-primary-subtle);
+  color: var(--admin-primary);
+}
+
+.admin-store-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.admin-store-form fieldset {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0 0 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-store-form fieldset:last-of-type {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.admin-store-form legend {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+  color: var(--admin-text);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+
+.admin-store-fields {
+  display: grid;
+  gap: 0.72rem 0.85rem;
+}
+
+.admin-store-fields.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-store-fields.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.admin-store-fields label,
+.admin-store-cta label {
+  display: grid;
+  gap: 0.32rem;
+  color: var(--admin-text-secondary);
+  font-size: 0.65rem;
+  font-weight: 650;
+}
+
+.admin-store-fields label.wide {
+  grid-column: 1 / -1;
+}
+
+.admin-store-fields input,
+.admin-store-fields textarea,
+.admin-store-cta input {
+  width: 100%;
+  min-height: 2.3rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.42rem;
+  outline: 0;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  font: inherit;
+  font-size: 0.68rem;
+}
+
+.admin-store-fields textarea {
+  min-height: auto;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.admin-store-fields input:focus,
+.admin-store-fields textarea:focus,
+.admin-store-cta input:focus {
+  border-color: var(--primary-400);
+  box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+.admin-store-image-field > input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.admin-store-image-control {
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr) auto;
+  gap: 0.65rem;
+  align-items: center;
+  min-height: 3.6rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px dashed var(--primary-300);
+  border-radius: 0.45rem;
+  background: var(--admin-primary-subtle);
+  cursor: pointer;
+}
+
+.admin-store-image-preview {
+  display: grid;
+  place-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  overflow: hidden;
+  border-radius: 0.38rem;
+  background: var(--admin-surface);
+  color: var(--admin-primary);
+}
+
+.admin-store-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.admin-store-image-copy {
+  min-width: 0;
+}
+
+.admin-store-image-copy strong,
+.admin-store-image-copy small {
+  display: block;
+}
+
+.admin-store-image-copy strong {
+  color: var(--admin-text);
+  font-size: 0.66rem;
+}
+
+.admin-store-image-copy small,
+.admin-store-hint {
+  margin-top: 0.12rem;
+  color: var(--admin-text-muted);
+  font-size: 0.56rem;
+  font-weight: 500;
+}
+
+.admin-store-spinner {
+  animation: admin-store-spin 700ms linear infinite;
+}
+
+@keyframes admin-store-spin {
+  to { transform: rotate(360deg); }
+}
+
+.admin-store-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.admin-store-cta {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.48rem;
+  background: var(--neutral-50);
+}
+
+.admin-store-checkbox {
+  display: flex !important;
+  grid-template-columns: none;
+  align-items: center;
+  gap: 0.45rem !important;
+  color: var(--admin-text) !important;
+}
+
+.admin-store-checkbox input {
+  width: 0.9rem;
+  min-height: 0;
+  height: 0.9rem;
+  accent-color: var(--admin-primary);
+}
+
+.admin-store-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--admin-border);
+  background: var(--admin-surface);
+}
+
+.admin-store-message {
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.42rem;
+  font-size: 0.64rem;
+  font-weight: 650;
+}
+
+.admin-store-message.error {
+  background: var(--color-error-surface);
+  color: var(--color-error);
+}
+
+.admin-store-message.success {
+  background: var(--color-success-surface);
+  color: var(--color-success);
+}
+
+.admin-store-loading {
+  grid-column: 1 / -1;
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  color: var(--admin-text-muted);
+  font-size: 0.66rem;
+}
+
+@media (max-width: 900px) {
+  .admin-store-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-store-tabs {
+    position: static;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-store-tabs,
+  .admin-store-fields.two,
+  .admin-store-fields.three,
+  .admin-store-cta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-store-fields label.wide {
+    grid-column: auto;
+  }
+}

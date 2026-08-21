@@ -1,0 +1,23 @@
+packages:
+  - backend-lulu
+  - lulu_shop_front
+
+# Reprise des "overrides" npm qui vivaient dans lulu_shop_front/package.json.
+# Depuis pnpm 11 ils se déclarent ici, et non plus sous la clé "pnpm" du
+# package.json racine.
+overrides:
+  postcss: 8.5.20
+  next>sharp: 0.35.0
+  # mongoose exige ~6.20.0 tandis que la dépendance directe du backend (^6.20.0)
+  # remontait à 6.21.0. npm aplatissait les deux en une seule copie ; pnpm les
+  # isole, ce qui rendait les types Db/MongoClient incompatibles entre
+  # mongoose.connection.db et les imports directs. On force une copie unique.
+  mongodb: 6.20.0
+
+# pnpm bloque les scripts d'installation par défaut. Ces deux paquets en ont
+# réellement besoin : sharp compile/télécharge son binaire natif (redimension
+# des images produits côté API et optimisation next/image), unrs-resolver fait
+# de même pour la résolution de modules d'eslint-config-next.
+allowBuilds:
+  sharp: true
+  unrs-resolver: true

@@ -1,0 +1,41 @@
+{
+  "name": "lulu_shop_front",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build",
+    "check:seo": "node scripts/check-seo.mjs",
+    "start": "next start",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.539.0",
+    "next": "16.2.12",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.12",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "postcss": "8.5.20",
+    "next": {
+      "sharp": "0.35.0"
+    }
+  }
+}

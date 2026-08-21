@@ -1,0 +1,150 @@
+.admin-ui-login-shell {
+  min-height: 100dvh;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.09), transparent 30%),
+    #f7f3ec;
+}
+
+.admin-ui-session-loader {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 2px solid rgba(140, 59, 74, 0.18);
+  border-top-color: var(--admin-primary);
+  border-radius: 50%;
+  animation: admin-session-spin 0.7s linear infinite;
+}
+
+@keyframes admin-session-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.admin-ui-login-card {
+  width: min(360px, 100%);
+  gap: 0.9rem;
+  padding: 1.35rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.85rem;
+  background: var(--admin-surface);
+  box-shadow: 0 12px 32px rgba(61, 42, 34, 0.09);
+}
+
+.admin-ui-login-brand {
+  gap: 0.65rem;
+}
+
+.admin-ui-login-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-ui-login-brand strong {
+  color: var(--admin-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.admin-ui-login-brand span {
+  margin-top: 0.08rem;
+  color: var(--admin-text-muted);
+  font-size: 0.65rem;
+  font-weight: 500;
+}
+
+.admin-ui-login-copy {
+  gap: 0.2rem;
+  padding-top: 0.15rem;
+}
+
+.admin-ui-login-copy h1 {
+  color: var(--admin-text);
+  font-size: 1.35rem;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.admin-ui-login-copy p {
+  color: var(--admin-text-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.admin-ui-login-form {
+  gap: 0.75rem;
+}
+
+.admin-ui-login-form label {
+  gap: 0.35rem;
+  color: var(--admin-text-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.admin-ui-login-form input {
+  min-height: 2.6rem;
+  padding: 0.62rem 0.75rem;
+  border-radius: 0.55rem;
+  font-size: 0.78rem;
+}
+
+.admin-ui-password-field {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.admin-ui-password-field input {
+  width: 100%;
+  padding-right: 2.8rem;
+}
+
+.admin-ui-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.45rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--admin-text-muted);
+  cursor: pointer;
+  place-items: center;
+  transform: translateY(-50%);
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.admin-ui-password-toggle:hover {
+  background: rgba(140, 59, 74, 0.08);
+  color: var(--admin-primary);
+}
+
+.admin-ui-password-toggle:focus-visible {
+  outline: 2px solid var(--admin-primary);
+  outline-offset: 1px;
+}
+
+.admin-ui-login-form .btn {
+  min-height: 2.6rem;
+  margin-top: 0.1rem;
+  border-radius: 0.55rem;
+  font-size: 0.72rem;
+}
+
+.admin-ui-login-card .admin-error,
+.admin-ui-login-card .admin-success {
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.68rem;
+}

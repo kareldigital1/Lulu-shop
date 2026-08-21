@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.next/
+.vercel/
+.env
+.env.local
+.env.*.local
+coverage/
+*.log
+backend-lulu/node_modules/
+backend-lulu/dist/
+lulu_shop_front/node_modules/
+lulu_shop_front/.next/
+
+# Restes d'installations npm échouées (à supprimer)
+node_modules_broken_*/
