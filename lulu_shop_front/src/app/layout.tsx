@@ -84,9 +84,17 @@ export const metadata: Metadata = {
     description: HOME_DESCRIPTION,
   },
   icons: {
-    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    // Google prioritizes this high-resolution, square brand mark in search results.
+    icon: [
+      {
+        url: "/images/favicon-round-preview.png",
+        type: "image/png",
+        sizes: "512x512",
+      },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
     shortcut: ["/favicon.ico"],
-    apple: ["/images/logo.png"],
+    apple: ["/images/favicon-round-preview.png"],
   },
 };
 

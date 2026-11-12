@@ -914,7 +914,13 @@ export function AdminOrdersPanel({
           <div className="admin-order-items-head">
             <div>
               <h3>Articles</h3>
-              <p>Le stock ne bouge qu’à la confirmation.</p>
+              <p>
+                {selectedOrder.status === "pending"
+                  ? "Prix, couleur, taille et quantité restent modifiables. Le stock ne bouge qu’à la confirmation."
+                  : `Commande ${ORDER_STATUS_LABELS[
+                      selectedOrder.status
+                    ].toLowerCase()} : les lignes ne sont plus modifiables. Seule une commande en attente peut être ajustée.`}
+              </p>
             </div>
             {selectedOrder.status === "pending" ? (
               <div>
